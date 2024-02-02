@@ -123,7 +123,7 @@ namespace IS_413___Mission_4
             }
             else
             {
-                winner = "Cat's game! No winner."
+                winner = "Cat's game! No winner.";
             }
 
             return winner;
