@@ -60,7 +60,7 @@ internal class Program
                     if (valid == true)
                     {
                         board[(choice - 1)] = symbolP1;
-                        player = 2;\
+                        player = 2;
                         // Print the board by calling the method in the supporting class
                         Console.WriteLine(s.PrintBoard(board));
 
