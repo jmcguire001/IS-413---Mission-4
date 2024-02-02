@@ -18,24 +18,31 @@ internal class Program
         bool winner = false;
         bool valid = false;
         string winnerName = "";
+        bool check = true;
 
         // Welcome the user to the game
         Console.WriteLine("Welcome to our Tic-Tac-Toe game! ");
 
-        Console.WriteLine("Player 1: Do you want to be Xs or Os? ");
-        symbolP1 = Console.ReadLine().ToUpper();
-        if (symbolP1 == "X")
+        while (check)
         {
-            symbolP2 = "O";
+            Console.WriteLine("Player 1: Do you want to be Xs or Os? ");
+            symbolP1 = Console.ReadLine().ToUpper();
+            if (symbolP1 == "X")
+            {
+                symbolP2 = "O";
+                check = false;
+            }
+            else if (symbolP1 == "O")
+            {
+                symbolP2 = "X";
+                check = false;
+            }
+            else
+            {
+                Console.WriteLine("Please enter either X or O.");
+            }
         }
-        else if (symbolP1 == "O")
-        {
-            symbolP2 = "X";
-        }
-        else
-        {
-            Console.WriteLine("Please enter either X or O.");
-        }
+        
 
         // Create a game board array to store the players’ choices
         string[] board = new string[9];
@@ -45,9 +52,10 @@ internal class Program
         }
 
         // Ask each player in turn for their choice and update the game board array
-        while(winner == false)
+        
+        for (int i = 0; i < 9; i++)
         {
-            for (int i = 0; i < 9; i++)
+            while (winner == false)
             {
                 if (player == 1)
                 {
@@ -66,6 +74,7 @@ internal class Program
 
                         // Check for a winner by calling the method in the supporting class
                         winnerName = s.CheckWinner(board, symbolP1);
+                        // Console.WriteLine(winnerName);
                         if (winnerName != "")
                         {
                             winner = true;
@@ -95,6 +104,7 @@ internal class Program
 
                         // Check for a winner by calling the method in the supporting class
                         winnerName = s.CheckWinner(board, symbolP1);
+                        // Console.WriteLine(winnerName);
                         if (winnerName != "")
                         {
                             winner = true;
