@@ -151,5 +151,8 @@ internal class Program
         }
         // Notify the players when a win has occurred and which player won the game
         Console.WriteLine(winnerName);
+        // Press any key to exit line
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
     }
 }
