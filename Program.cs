@@ -151,7 +151,9 @@ internal class Program
         }
         // Notify the players when a win has occurred and which player won the game
         Console.WriteLine(winnerName);
-        // Press any key to exit line
+        // We were having an issue where on two of our computers were quitting our terminal immediatly after code.
+        // This line of code is to fix that in case it happens.
+        // If your console doesn't automatically shut down then you will have to enter twice.
         Console.WriteLine("Press any key to exit...");
         Console.ReadKey();
     }
