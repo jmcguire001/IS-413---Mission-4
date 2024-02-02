@@ -87,63 +87,103 @@ internal class Program
                 if (player == 1)
                 {
                     Console.WriteLine($"{name}, your move! Enter the number 1-9 where you want your {symbol} to go ");
-                    choice = int.Parse(Console.ReadLine());
-                    // Validate choice
-                    string elementToCheck = board[(choice - 1)];
-                    valid = int.TryParse(elementToCheck, out int result);
-
-                    if (valid == true) 
+                    
+                    // Check if the input is an integer between 1 and 9
+                    try
                     {
-                        board[(choice - 1)] = symbolP1;
-                        player = 2;
-                        name = player2Name;
-                        symbol = symbolP2;
-                        // Print the board by calling the method in the supporting class
-                        Console.WriteLine(s.PrintBoard(board));
-
-                        // Check for a winner by calling the method in the supporting class
-                        winnerName = s.CheckWinner(board, pass, passname1, passname2);
-                        // Console.WriteLine(winnerName);
-                        if (winnerName != "")
+                        // Attempt to parse the string to an integer
+                        choice = int.Parse(Console.ReadLine());
+                        if (choice > 9 || choice < 1)
                         {
-                            winner = true;
+                            Console.WriteLine("Please enter a value between 1 and 9");
+                            break;
+                        }
+                        string elementToCheck = board[(choice - 1)];
+                        int result = int.Parse(elementToCheck);
+
+                        // Check if the integer is between 1 and 9 (inclusive)
+                        if (result >= 1 && result <= 9)
+                        {
+                            board[(choice - 1)] = symbolP1;
+                            player = 2;
+                            name = player2Name;
+                            symbol = symbolP2;
+                            // Print the board by calling the method in the supporting class
+                            Console.WriteLine(s.PrintBoard(board));
+
+                            // Check for a winner by calling the method in the supporting class
+                            winnerName = s.CheckWinner(board, pass, passname1, passname2);
+                            // Console.WriteLine(winnerName);
+                            if (winnerName != "")
+                            {
+                                winner = true;
+                            }
+                        }
+                        else if (result < 1 || result > 9)
+                        {
+                            Console.WriteLine("Input a number between 1 and 9. Try again ");
+                            i--;
+                        }
+                        else 
+                        {
+                            Console.WriteLine("Position already taken. Try again ");
+                            i--;
                         }
                     }
-                    else
+                    catch (FormatException)
                     {
-                        Console.WriteLine("Position already taken. Try again ");
+                        Console.WriteLine($"Error: The input must be an integer between 1 and 9. ");
                         i--;
                     }
                 }
                 else if (player == 2)
                 {
                     Console.WriteLine($"{name}, your move! Enter the number 1-9 where you want your {symbol} to go ");
-                    choice = int.Parse(Console.ReadLine());
-                    
-                    // Validate choice
-                    string elementToCheck = board[(choice - 1)];
-                    valid = int.TryParse(elementToCheck, out int result);
-
-                    if (valid == true)
+                    // Check if the input is an integer between 1 and 9
+                    try
                     {
-                        board[(choice - 1)] = symbolP2;
-                        player = 1;
-                        name = player1Name;
-                        symbol = symbolP1;
-                        // Print the board by calling the method in the supporting class
-                        Console.WriteLine(s.PrintBoard(board));
-
-                        // Check for a winner by calling the method in the supporting class
-                        winnerName = s.CheckWinner(board, pass, passname1, passname2);
-                        // Console.WriteLine(winnerName);
-                        if (winnerName != "")
+                        // Attempt to parse the string to an integer
+                        choice = int.Parse(Console.ReadLine());
+                        if (choice > 9 || choice < 1)
                         {
-                            winner = true;
+                            Console.WriteLine("Please enter a value between 1 and 9");
+                            break;
+                        }
+                        string elementToCheck = board[(choice - 1)];
+                        int result = int.Parse(elementToCheck);
+
+                        // Check if the integer is between 1 and 9 (inclusive)
+                        if (result >= 1 && result <= 9)
+                        {
+                            board[(choice - 1)] = symbolP2;
+                            player = 1;
+                            name = player1Name;
+                            symbol = symbolP1;
+                            // Print the board by calling the method in the supporting class
+                            Console.WriteLine(s.PrintBoard(board));
+
+                            // Check for a winner by calling the method in the supporting class
+                            winnerName = s.CheckWinner(board, pass, passname1, passname2);
+                            // Console.WriteLine(winnerName);
+                            if (winnerName != "")
+                            {
+                                winner = true;
+                            }
+                        }
+                        else if (result < 1 || result > 9)
+                        {
+                            Console.WriteLine("Input a number between 1 and 9. Try again ");
+                            i--;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Position already taken. Try again ");
+                            i--;
                         }
                     }
-                    else
+                    catch (FormatException)
                     {
-                        Console.WriteLine("Position already taken. Try again ");
+                        Console.WriteLine($"Error: The input must be an integer between 1 and 9. ");
                         i--;
                     }
                 }
