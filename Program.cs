@@ -2,7 +2,6 @@
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
 using IS_413___Mission_4;
-//using Support;
 
 // Group 2-3: Driver Class
 
@@ -10,7 +9,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        // new Support s = new Support();
+        Support s = new Support();
 
         int choice = 0;
         string symbolP1 = "";
@@ -79,7 +78,7 @@ internal class Program
                 }
             }
             // Print the board by calling the method in the supporting class
-            //s.PrintBoard();
+            Console.WriteLine(s.PrintBoard());
 
             // Check for a winner by calling the method in the supporting class
             // s.CheckWinner();
