@@ -27,14 +27,15 @@ namespace IS_413___Mission_4
             return gameBoard;
         }
 
-        public string CheckWinner(string[] board)
+        public string CheckWinner(string[] board, string player1)
         {
             string winner = "";
+            string Player1 = player1;
 
             // Check for a winner
             if (board[0] == board[1] && board[1] == board[2] && board[0] != " ")
             {
-                if (board[0] == "x")
+                if (board[0] == Player1)
                 {
                     winner = "Player 1";
                 }
@@ -45,7 +46,7 @@ namespace IS_413___Mission_4
             }
             else if (board[3] == board[4] && board[4] == board[5] && board[3] != " ")
             {
-                if (board[3] == "X")
+                if (board[3] == Player1)
                 {
                     winner = "Player 1";
                 }
@@ -56,7 +57,7 @@ namespace IS_413___Mission_4
             }
             else if (board[6] == board[7] && board[7] == board[8] && board[6] != " ")
             {
-                if (board[6] == "X")
+                if (board[6] == Player1)
                 {
                     winner = "Player 1";
                 }
@@ -67,7 +68,7 @@ namespace IS_413___Mission_4
             }
             else if (board[0] == board[3] && board[3] == board[6] && board[0] != " ")
             {
-                if (board[0] == "X")
+                if (board[0] == Player1)
                 {
                     winner = "Player 1";
                 }
@@ -78,7 +79,7 @@ namespace IS_413___Mission_4
             }
             else if (board[1] == board[4] && board[4] == board[7] && board[1] != " ")
             {
-                if (board[1] == "X")
+                if (board[1] == Player1)
                 {
                     winner = "Player 1";
                 }
@@ -89,7 +90,7 @@ namespace IS_413___Mission_4
             }
             else if (board[2] == board[5] && board[5] == board[8] && board[2] != " ")
             {
-                if (board[2] == "X")
+                if (board[2] == Player1)
                 {
                     winner = "Player 1";
                 }
@@ -100,7 +101,7 @@ namespace IS_413___Mission_4
             }
             else if (board[0] == board[4] && board[4] == board[8] && board[0] != " ")
             {
-                if (board[0] == "X")
+                if (board[0] == Player1)
                 {
                     winner = "Player 1";
                 }
@@ -111,7 +112,7 @@ namespace IS_413___Mission_4
             }
             else if (board[2] == board[4] && board[4] == board[6] && board[2] != " ")
             {
-                if (board[2] == "x")
+                if (board[2] == Player1)
                 {
                     winner = "Player 1";
                 }
@@ -120,24 +121,8 @@ namespace IS_413___Mission_4
                     winner = "Player 2";
                 }
             }
-            else
-            {
-                winner = "";
-            }
 
             return winner;
-        }
-
-        static void Main(string[] args)
-        {
-            Support support = new Support();
-
-            // Example usage: creating a board and printing it to the console
-            string[] board = { "X", "X", " ", "X", "X", "X", " ", "X", "O" };
-            string result = support.PrintBoard(board);
-
-            // Print the result to the console
-            Console.WriteLine(result);
         }
     }
 }
