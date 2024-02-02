@@ -128,6 +128,7 @@ namespace IS_413___Mission_4
             // Check for a cat's game or whether to continue
             else
             {
+                // If the entire board is X or O, it's a cat's game
                 if (board[0] != "1" && board[1] != "2" && board[2] != "3" && board[3] != "4" && board[4] != "5" && board[5] != "6" && board[6] != "7" && board[7] != "8" && board[8] != "9")
                 {
                     winner = "Cat's game! No winner.";
