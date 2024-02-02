@@ -37,6 +37,8 @@ internal class Program
 
         // Create a game board array to store the players’ choices
         string[] board = new string[9];
+        
+        
         for (int iCount = 0; iCount < board.Length; ++iCount)
         {
             board[iCount] = " ";
@@ -77,13 +79,14 @@ internal class Program
                     i--;
                 }
             }
+            
             // Print the board by calling the method in the supporting class
-            Console.WriteLine(s.PrintBoard());
+            // Console.WriteLine(s.PrintBoard(board));
 
             // Check for a winner by calling the method in the supporting class
             // s.CheckWinner();
         }
-        string winner = "";
+        // string winner = "";
         // Notify the players when a win has occurred and which player won the game
         Console.WriteLine($"Player {winner} has won! Good game ");
     }
