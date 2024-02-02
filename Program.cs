@@ -92,7 +92,7 @@ internal class Program
                     string elementToCheck = board[(choice - 1)];
                     valid = int.TryParse(elementToCheck, out int result);
 
-                    if (valid == true)
+                    if (valid == true) 
                     {
                         board[(choice - 1)] = symbolP1;
                         player = 2;
