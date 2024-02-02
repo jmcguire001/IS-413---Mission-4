@@ -87,11 +87,18 @@ internal class Program
                 if (player == 1)
                 {
                     Console.WriteLine($"{name}, your move! Enter the number 1-9 where you want your {symbol} to go ");
-                    string elementToCheck = board[(choice - 1)];
+                    
                     // Check if the input is an integer between 1 and 9
                     try
                     {
                         // Attempt to parse the string to an integer
+                        choice = int.Parse(Console.ReadLine());
+                        if (choice > 9 || choice < 1)
+                        {
+                            Console.WriteLine("Please enter a value between 1 and 9");
+                            break;
+                        }
+                        string elementToCheck = board[(choice - 1)];
                         int result = int.Parse(elementToCheck);
 
                         // Check if the integer is between 1 and 9 (inclusive)
@@ -132,11 +139,17 @@ internal class Program
                 else if (player == 2)
                 {
                     Console.WriteLine($"{name}, your move! Enter the number 1-9 where you want your {symbol} to go ");
-                    string elementToCheck = board[(choice - 1)];
                     // Check if the input is an integer between 1 and 9
                     try
                     {
                         // Attempt to parse the string to an integer
+                        choice = int.Parse(Console.ReadLine());
+                        if (choice > 9 || choice < 1)
+                        {
+                            Console.WriteLine("Please enter a value between 1 and 9");
+                            break;
+                        }
+                        string elementToCheck = board[(choice - 1)];
                         int result = int.Parse(elementToCheck);
 
                         // Check if the integer is between 1 and 9 (inclusive)
