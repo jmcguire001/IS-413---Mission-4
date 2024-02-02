@@ -72,8 +72,12 @@ internal class Program
                 {
                     Console.WriteLine($"Player {player}, your move! Enter the number 1-9 where you want your {symbolP2} to go ");
                     choice = int.Parse(Console.ReadLine());
+                    
+                    // Validate choice
+                    string elementToCheck = board[(choice - 1)];
+                    valid = int.TryParse(elementToCheck, out int result);
 
-                    if (board[choice - 1] == " ")
+                    if (valid == true)
                     {
                         board[(choice - 1)] = symbolP2;
                         player = 1;
@@ -95,9 +99,7 @@ internal class Program
                 }
             }
         }
-        
         // Notify the players when a win has occurred and which player won the game
         Console.WriteLine($"Player {winner} has won! Good game ");
     }
-
 }
