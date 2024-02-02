@@ -61,6 +61,15 @@ internal class Program
                     {
                         board[(choice - 1)] = symbolP1;
                         player = 2;
+                        // Print the board by calling the method in the supporting class
+                        Console.WriteLine(s.PrintBoard(board));
+
+                        // Check for a winner by calling the method in the supporting class
+                        winnerName = s.CheckWinner(board, symbolP1);
+                        if (winnerName != "")
+                        {
+                            winner = true;
+                        }
                     }
                     else
                     {
@@ -81,21 +90,21 @@ internal class Program
                     {
                         board[(choice - 1)] = symbolP2;
                         player = 1;
+                        // Print the board by calling the method in the supporting class
+                        Console.WriteLine(s.PrintBoard(board));
+
+                        // Check for a winner by calling the method in the supporting class
+                        winnerName = s.CheckWinner(board, symbolP1);
+                        if (winnerName != "")
+                        {
+                            winner = true;
+                        }
                     }
                     else
                     {
                         Console.WriteLine("Position already taken. Try again ");
                         i--;
                     }
-                }
-                // Print the board by calling the method in the supporting class
-                Console.WriteLine(s.PrintBoard(board));
-
-                // Check for a winner by calling the method in the supporting class
-                winnerName = s.CheckWinner(board, symbolP1);
-                if (winnerName != "")
-                {
-                    winner = true;
                 }
             }
         }
