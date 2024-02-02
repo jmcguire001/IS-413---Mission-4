@@ -27,109 +27,99 @@ namespace IS_413___Mission_4
             return gameBoard;
         }
 
-        public string CheckWinner(string[] board, string player1)
+        public string CheckWinner(string[] board, string player1Symbol, string player1Name, string player2Name)
         {
             string winner = "";
-            string Player1 = player1;
-
+            string Player1Symbol = player1Symbol;
             // Check for a winner
-            if (board[0] == board[1] && board[1] == board[2] && board[0] != "1")
+            if (board[0] == board[1] && board[1] == board[2] && board[0] != " ")
             {
-                if (board[0] == Player1)
+                if (board[0] == Player1Symbol)
                 {
-                    winner = "Player 1 has won. Good game!";
+                    winner = $"{player1Name} wins!";
                 }
                 else
                 {
-                    winner = "Player 2 has won. Good game!";
+                    winner = $"{player2Name} wins!";
                 }
             }
-            else if (board[3] == board[4] && board[4] == board[5] && board[3] != "4")
+            else if (board[3] == board[4] && board[4] == board[5] && board[3] != " ")
             {
-                if (board[3] == Player1)
+                if (board[3] == Player1Symbol)
                 {
-                    winner = "Player 1 has won. Good game!";
+                    winner = $"{player1Name} wins!";
                 }
                 else
                 {
-                    winner = "Player 2 has won. Good game!";
+                    winner = $"{player2Name} wins!";
                 }
             }
-            else if (board[6] == board[7] && board[7] == board[8] && board[6] != "7")
+            else if (board[6] == board[7] && board[7] == board[8] && board[6] != " ")
             {
-                if (board[6] == Player1)
+                if (board[6] == Player1Symbol)
                 {
-                    winner = "Player 1 has won. Good game!";
+                    winner = $"{player1Name} wins!";
                 }
                 else
                 {
-                    winner = "Player 2 has won. Good game!";
+                    winner = $"{player2Name} wins!";
                 }
             }
-            else if (board[0] == board[3] && board[3] == board[6] && board[0] != "1")
+            else if (board[0] == board[3] && board[3] == board[6] && board[0] != " ")
             {
-                if (board[0] == Player1)
+                if (board[0] == Player1Symbol)
                 {
-                    winner = "Player 1 has won. Good game!";
+                    winner = $"{player1Name} wins!";
                 }
                 else
                 {
-                    winner = "Player 2 has won. Good game!";
+                    winner = $"{player2Name} wins!";
                 }
             }
-            else if (board[1] == board[4] && board[4] == board[7] && board[1] != "2")
+            else if (board[1] == board[4] && board[4] == board[7] && board[1] != " ")
             {
-                if (board[1] == Player1)
+                if (board[1] == Player1Symbol)
                 {
-                    winner = "Player 1 has won. Good game!";
+                    winner = $"{player1Name} wins!";
                 }
                 else
                 {
-                    winner = "Player 2 has won. Good game!";
+                    winner = $"{player2Name} wins!";
                 }
             }
-            else if (board[2] == board[5] && board[5] == board[8] && board[2] != "3")
+            else if (board[2] == board[5] && board[5] == board[8] && board[2] != " ")
             {
-                if (board[2] == Player1)
+                if (board[2] == Player1Symbol)
                 {
-                    winner = "Player 1 has won. Good game!";
+                    winner = $"{player1Name} wins!";
                 }
                 else
                 {
-                    winner = "Player 2 has won. Good game!";
+                    winner = $"{player2Name} wins!";
                 }
             }
-            else if (board[0] == board[4] && board[4] == board[8] && board[0] != "1")
+            else if (board[0] == board[4] && board[4] == board[8] && board[0] != " ")
             {
-                if (board[0] == Player1)
+                if (board[0] == Player1Symbol)
                 {
-                    winner = "Player 1 has won. Good game!";
+                    winner = $"{player1Name} wins!";
                 }
                 else
                 {
-                    winner = "Player 2 has won. Good game!";
+                    winner = $"{player2Name} wins!";
                 }
             }
-            else if (board[2] == board[4] && board[4] == board[6] && board[2] != "3")
+            else if (board[2] == board[4] && board[4] == board[6] && board[2] != " ")
             {
-                if (board[2] == Player1)
+                if (board[2] == Player1Symbol)
                 {
-                    winner = "Player 1 has won. Good game!";
+                    winner = $"{player1Name} wins!";
                 }
                 else
                 {
-                    winner = "Player 2 has won. Good game!";
+                    winner = $"{player2Name} wins!";
                 }
             }
-            else
-            {
-                if (board[0] != "1" && board[1] != "2" && board[2] != "3" && board[3] != "4" && board[4] != "5" && board[5] != "6" && board[6] != "7" && board[7] != "8" && board[8] != "9")
-                {
-                    winner = "Cat's game! No winner.";
-                }
-            }
-
-            return winner;
         }
     }
 }
