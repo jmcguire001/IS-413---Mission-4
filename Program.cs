@@ -15,7 +15,9 @@ internal class Program
         string symbolP1 = "";
         string symbolP2 = "";
         int player = 1;
-
+        bool winner = false;
+        bool valid = false;
+        string winnerName = "";
 
         // Welcome the user to the game
         Console.WriteLine("Welcome to our Tic-Tac-Toe game! ");
@@ -41,52 +43,61 @@ internal class Program
         
         for (int iCount = 0; iCount < board.Length; ++iCount)
         {
-            board[iCount] = " ";
+            board[iCount] = $"{iCount + 1}";
         }
 
         // Ask each player in turn for their choice and update the game board array
-        for (int i = 0; i < 9; i++)
+        while(winner == false)
         {
-            if (player == 1)
+            for (int i = 0; i < 9; i++)
             {
-                Console.WriteLine($"Player {player}, your move! Enter the number 1-9 where you want your {symbolP1} to go ");
-                choice = int.Parse(Console.ReadLine());
-                // Validate choice
-                if (board[choice - 1] == " ")
+                if (player == 1)
                 {
-                    board[(choice - 1)] = symbolP1;
-                    player = 2;
+                    Console.WriteLine($"Player {player}, your move! Enter the number 1-9 where you want your {symbolP1} to go ");
+                    choice = int.Parse(Console.ReadLine());
+                    // Validate choice
+                    string elementToCheck = board[(choice - 1)];
+                    valid = int.TryParse(elementToCheck, out int result);
+
+                    if (valid == true)
+                    {
+                        board[(choice - 1)] = symbolP1;
+                        player = 2;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Position already taken. Try again ");
+                        i--;
+                    }
                 }
-                else
+                else if (player == 2)
                 {
-                    Console.WriteLine("Position already taken. Try again ");
-                    i--;
+                    Console.WriteLine($"Player {player}, your move! Enter the number 1-9 where you want your {symbolP2} to go ");
+                    choice = int.Parse(Console.ReadLine());
+
+                    if (board[choice - 1] == " ")
+                    {
+                        board[(choice - 1)] = symbolP2;
+                        player = 1;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Position already taken. Try again ");
+                        i--;
+                    }
+                }
+                // Print the board by calling the method in the supporting class
+                Console.WriteLine(s.PrintBoard(board));
+
+                // Check for a winner by calling the method in the supporting class
+                winnerName = s.CheckWinner(board, symbolP1);
+                if (winnerName != "")
+                {
+                    winner = true;
                 }
             }
-            else if (player == 2)
-            {
-                Console.WriteLine($"Player {player}, your move! Enter the number 1-9 where you want your {symbolP2} to go ");
-                choice = int.Parse(Console.ReadLine());
-
-                if (board[choice - 1] == " ")
-                {
-                    board[(choice - 1)] = symbolP2;
-                    player = 1;
-                }
-                else
-                {
-                    Console.WriteLine("Position already taken. Try again ");
-                    i--;
-                }
-            }
-            
-            // Print the board by calling the method in the supporting class
-            // Console.WriteLine(s.PrintBoard(board));
-
-            // Check for a winner by calling the method in the supporting class
-            // s.CheckWinner();
         }
-        // string winner = "";
+        
         // Notify the players when a win has occurred and which player won the game
         Console.WriteLine($"Player {winner} has won! Good game ");
     }
