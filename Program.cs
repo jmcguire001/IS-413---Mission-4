@@ -10,7 +10,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        // new Support s = new Support();
+        Support s = new Support();
 
         int choice = 0;
         string symbolP1 = "";
@@ -79,7 +79,7 @@ internal class Program
                 }
             }
             // Print the board by calling the method in the supporting class
-            //s.PrintBoard();
+            s.PrintBoard(board);
 
             // Check for a winner by calling the method in the supporting class
             // s.CheckWinner();
