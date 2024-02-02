@@ -100,6 +100,6 @@ internal class Program
             }
         }
         // Notify the players when a win has occurred and which player won the game
-        Console.WriteLine($"Player {winner} has won! Good game ");
+        Console.WriteLine(winnerName);
     }
 }
